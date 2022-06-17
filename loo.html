@@ -1,0 +1,60 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="form1.css">
+</head>
+<body>
+	<p>Espace d'Administrateur</p>
+
+	<form method="POST">
+
+	<button name="logout">Déconnexion</button>
+	
+</form>
+<h1>Welcome sur la page d'administration - <?php echo $_SESSION['AdminLoginId']?> </h1><br>
+
+
+	<div id="b">Les commentaires reçus : </div>
+<?php
+
+if(isset($_POST['logout'])){
+
+	session_destroy();
+	header("location:form.php");
+}
+
+?>
+
+<?php
+$server_name="localhost";
+$user="root";
+$pass="";
+$db="contact";
+
+$db= new mysqli($server_name,$user,$pass,$db)
+or die("unnable to connect");
+
+$sql="select * from commentaire";
+$result=mysqli_query($db,$sql) or  die("bad query");
+
+echo "<table border='1'";
+echo "<tr><td>id</td><td>nom</td><td>email</td><td>tel</td><td>commentaire</td></tr><br>";
+
+while ($row=mysqli_fetch_assoc($result)) {
+	echo"<tr><td>{$row['id']}</td><td>{$row['nom']}</td><td>{$row['email']}</td><td>{$row['tel']}</td><td>{$row['commen']}</td></tr><br>";
+}
+
+echo "</table>";
+
+
+
+?>
+
+</body>
+</html>

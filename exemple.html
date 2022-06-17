@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Entrainement</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="lib/leaflet.css">
+	<script type="text/javascript" src="lib/leaflet.js"> </script>
+	<script type="text/javascript" src="lib/jquery-3.6.0/dist/jquery.min.js"></script>
+	<script type="text/javascript" src="lib/easyprint/dist/bundle.js"> </script>
+</head>
+<body onLoad="aska()">
+
+	<div id="cart">
+
+		
+	</div>
+
+  <style>
+    
+    #cart{
+      width: 100%;
+      height: 592px;
+      border:1px solid green;
+    }
+  </style>
+
+	
+	</body>
+</html>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="lib/L.Geoserver.js"></script>
+
+<script>
+	
+	function aska() {
+
+	var mymap= L.map('cart').setView([11.55,43.08],12);
+
+     var esri= L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+    maxZoom: 25,
+    subdomains:['mt0','mt1','mt2','mt3']
+});
+
+var oms=L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+     maxZoom: 25,
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+});
+
+    oms.addTo(mymap);
+ esri.addTo(mymap);
+
+    L.control.scale({position:'bottomleft'}).addTo(mymap);
+ var baseMaps = {
+    "Esri":esri,
+    "OMS":oms, 
+};
+
+var wmsLayer=L.Geoserver.wms("http://localhost:8080/geoserver/wms", {
+  layers: "telecom:antenne_existante",
+  onEachFeature: function (feature, layer) {
+    layer.bindPopup(
+
+                
+            "idexisss   : "+feature.properties.idexis+"<br>"+
+            "site name : "+"<br>"+
+            "ville     : "+feature.properties.ville+"<br>"+
+            "latitude  : "+feature.properties.latitude+"<br>"+
+            "longitude : "+feature.properties.longitude+"<br>"+
+            "type_de_re: "+feature.properties.type_de_re+"<br>"+
+            "type_de_tr: "+feature.properties.type_de_tr+"<br>"+
+            "type_d_ant: "+feature.properties.type_d_ant+"<br>"+
+            "commune   : "+feature.properties.commune+"<br>"
+
+
+      );
+
+  },
+
+
+
+});
+//wmsLayer.addTo(mymap);
+
+var antenne= L.Geoserver.wfs("http://localhost:8080/geoserver/wfs", {
+  layers: "telecom:antenne_gloable",
+  onEachFeature: function (feature, layer) {
+    layer.bindPopup(
+
+                
+            "Id   : "+feature.properties.idexis+"<br>"+
+            "Site name : "+feature.properties.site_name+"<br>"+
+            "Ville     : "+feature.properties.ville+"<br>"+
+            "Latitude  : "+feature.properties.latitude+"<br>"+
+            "Longitude : "+feature.properties.longitude+"<br>"+
+            "Type de reseau: "+feature.properties.type_de_re+"<br>"+
+            "Type de transport: "+feature.properties.type_de_tr+"<br>"+
+            "Type d'antenne: "+feature.properties.type_d_ant+"<br>"+
+            "Commune   : "+feature.properties.commune+"<br>"
+
+
+      );
+
+  },
+
+});
+antenne.addTo(mymap);
+
+var baseMaps1={
+  "Antenne relais":antenne
+}
+
+
+
+
+
+L.control.layers(baseMaps,baseMaps1).addTo(mymap);
+
+L.easyPrint({
+	title: 'My awesome print button',
+	position: 'topleft',
+	exportOnly:true,
+	sizeModes: ['A4Portrait', 'A4Landscape']
+}).addTo(mymap);
+
+
+}
+
+</script>
+
+
+
+

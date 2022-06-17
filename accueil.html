@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Accueil</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="accuei.css">
+</head>
+<body>
+	<div id="menu">
+				<div id="tete"><marquee>BIENVENUE DANS NOTRE PLATEFORME</marquee></div>	
+				<div id="image1">
+					<div id="img"><img src="image/univ.jpg"></div>
+				</div>
+					<div id="image2">
+				<div id="img"><img src="image/telecom.png"></div>
+					</div>
+							<div id="deroulant">
+								<ul>
+									<li>
+										<a href='accueil.html'>Accueil</a>
+									</li>
+								</ul>
+						<ul>
+							<li>
+							<a href='web.html'>Webmapping</a>
+							
+							</li>
+						</ul>
+					<ul>
+						<li>
+							<a href='real.html'>Nos réalisations</a>
+							<ul>
+								<li><a href="balbala.html">Commune de Balbala</a></li>
+								<li><a href="bouloas.html">Commune de Boulaos</a></li>
+								<li><a href="rasdika.html">Commune de RasDika</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href='form.php'>Se connecter</a>	
+						</li>
+					</ul>
+					<ul>
+						<li>
+							<a href='cont.html'>Contact</a>			
+						</li>
+					</ul>				
+					</div>
+				</div>
+
+				<div id="contenu">
+					<div id="texte1">
+
+						<p> Mise en place d'une application webmapping pour localiser les antennes relais de Djibouti télécom</p>
+						
+					</div>
+					<div id="roulante">
+						
+						<p>Djibouti Télécom est l'opérateur de télécommunications à Djibouti. Il propose des services dans le domaine des télécommunications fixes et mobiles.Djibouti télécom fourni le réseau 4G+ récemment.grâce au nouveau câble sous-marin DARE1.Elle offre un débit d'informations nettement supérieur à celui des câbles coaxiaux et prend en charge un réseau « large bande » par lequel peuvent transiter aussi bien la télévision, le téléphone, la visioconférence ou les données informatiques.</p>
+					
+					</div>
+					<div id="roulante1">
+
+					<video controls="controls"><source src="montage/clip1.mp4" ></video> 
+						
+					</div>
+					
+
+					
+					
+					
+
+					
+					
+				</div>
+
+									<div id="pied">
+										<ul>
+							        		<li>Adresse:Djibouti-ville</li>					        		
+							        		<li>Num tel: 0025377014681/0025377120888</li>
+							        		<li>&copy Copyright 2022</li>
+							        	</ul>							        				
+							</div>
+
+							<style>
+								body{
+	background-image: url(image/fond0.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+#menu{
+	width: 100%;
+	height: 160px;
+	border: 1px solid red;
+}
+#tete{
+	width: 100%;
+	height: 30px;
+	border: 0px solid black;
+	font-weight: bold;
+	font-family: area;
+	font-size: 30px;
+	color: whitesmoke;	
+}
+#image1{
+	width:11.8%;
+	height:125px;
+	border: 0px solid black;
+	position: absolute;
+	display: block;
+	float:left;
+	}
+#image1 img{
+	width: 100%;
+	height:125px;
+}
+#image2{
+	width:15%;
+	height:125px;
+	border: 0px solid green;
+	display: block;
+	float: right;
+}
+#image2 img {
+	width: 100%;
+	height:125px;
+}
+#deroulant{
+	padding: 0px;
+	margin:0px 0px 0px 280px;
+
+	}
+#deroulant ul{
+	
+	padding:0px;
+	line-height: 15px;
+	}
+#deroulant li{
+	list-style: none;
+	float: left;
+	position: relative;
+	background: gold;
+}
+#deroulant ul li a{
+	color: black;
+	text-decoration: none;
+	width:148px;
+	height: 26px;
+	display:block;
+	text-align: center;
+	border: 1px solid deepskyblue;
+	padding-top: 2px; 
+}
+#deroulant ul ul{
+	position: absolute;
+	top:25px;
+	visibility: hidden;	
+	height: 36px;
+}
+#deroulant ul li:hover ul
+{
+ visibility: visible;
+    } 	
+#deroulant li:hover {
+	background: deepskyblue;
+} 
+#deroulant ul li ul a:hover {
+	color: yellow;   
+}
+#contenu{
+	width:98.8%;
+	height:488px;
+	border: 1px solid red;
+	position: absolute;
+	display: block;
+	float:left;
+	}
+#contenu #texte1 {
+	width:99.8%;
+	height:60px;
+	border: 0px solid black;
+	position: absolute;
+	display: block;
+	text-align: center;
+	font-family: algerian;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 22px;
+	color: floralwhite;	
+	}
+#contenu #roulante{
+    width:32%;
+	height:422px;
+	border: 0px solid white;
+	position: absolute;
+	display: inline-block;
+	float: left;
+	margin-top: 63px;
+	margin-left: 5px;
+
+	}
+#contenu #roulante p{
+	font-weight: bold;
+	font-family: area;
+	font-size:24px;
+	color: black;	
+}
+#contenu #roulante1{
+    width:66%;
+	height:422px;
+	border: 2px solid green;
+	position: absolute;
+	display: inline-block;
+	float: left;
+	margin-top: 63px;
+	margin-left:475px;
+}
+#contenu #roulante1 video {
+
+	width: 100%;
+	height: 400px;
+	padding-top: 8px;
+	
+
+
+}
+
+#pied{
+	width: 100%;
+	height: 100px;
+	border: 1px solid black;
+	display: block;
+	margin-top: 490px;
+}
+#pied ul{
+	list-style: none;
+	text-align: center;
+}
+#pied ul li{
+	font-style: italic;
+	font-size: 20px;
+}
+
+
+							</style>
+
+</body>
+</html>
